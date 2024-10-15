@@ -18,6 +18,8 @@ const config: Config = {
       animation: {
         "fill-from-left": "fill 2s cubic-bezier(.47,.09,.12,.9)",
         "show-name": "show .5s linear forwards",
+        "show-bg-line": "topdown .5s linear forwards",
+        "slide-up": "slideup .5s linear forwards",
       },
       keyframes: {
         fill: {
@@ -28,6 +30,14 @@ const config: Config = {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        topdown: {
+          "0%": {height: "0"},
+          "100%": {height: "100vh"},
+        },
+        slideup: {
+          "0%": {transform: "translateY(30%)", opacity: "0"},
+          "100%": {transform: "translateY(0)", opacity: "1"},
+        }
       },
     },
   },
