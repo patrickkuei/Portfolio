@@ -16,7 +16,7 @@ const config: Config = {
         scifi5: "#e4eff0",
       },
       animation: {
-        "fill-from-left": "fill 2s ease-in-out",
+        "fill-from-left": "fill 2s cubic-bezier(.47,.09,.12,.9)",
         "show-name": "show .5s linear forwards",
       },
       keyframes: {
