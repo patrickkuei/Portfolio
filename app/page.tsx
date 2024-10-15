@@ -28,7 +28,7 @@ const HeaderButton = ({
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-items-center min-h-screen pb-20 px-6 pt-4 gap-16 font-mono">
-      <header className="flex min-h-12 h-12 min-w-full justify-center items-center">
+      <header className="flex min-h-12 h-12 min-w-full justify-center items-center bg-black">
         <div className="w-1/2 h-full leading-[48px] animate-fill-from-left bg-scifi5/10 backdrop-blur">
           <h2 className="opacity-0 ml-4 whitespace-nowrap animate-show-name [animation-delay:2s]">
             Shen-Kuei, Yang (Patrick)
@@ -39,8 +39,7 @@ export default function Home() {
         <HeaderButton no={3}>Linkedin</HeaderButton>
         <HeaderButton no={4}>Resume</HeaderButton>
       </header>
-      <main className="flex flex-col gap-20 items-center w-4/5">
-        <div className="w-1 bg-white absolute top-16 opacity-50 -z-10 ml-auto animate-show-bg-line [animation-delay:3s]" />
+      <main className="flex flex-col gap-20 items-center w-4/5 relative after:w-1 after:bg-white after:absolute after:top-0 after:top-[-64px] after:opacity-50 after:-z-10 after:animate-show-bg-line after:[animation-delay:2.7s]">
         <div className="bg-black w-fit h-fit">
           <div className="text-4xl text-white/50 py-20 opacity-0 animate-slide-up [animation-delay:3s]">
             <span>
@@ -57,15 +56,15 @@ export default function Home() {
         </div>
         <div className="w-full h-fit flex">
           <div className="bg-white w-[400px] h-60 opacity-0 animate-slide-up [animation-delay:3.2s]"></div>
-          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:3.2s]">
+          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:3.5s]">
             some description
           </div>
         </div>
         <div className="w-full h-fit flex">
-          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:3.5s]">
+          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:4s]">
             some description
           </div>
-          <div className="bg-white w-[400px] h-60 opacity-0 animate-slide-up [animation-delay:3.5s]"></div>
+          <div className="bg-white w-[400px] h-60 opacity-0 animate-slide-up [animation-delay:3.8s]"></div>
         </div>
       </main>
       <footer className="flex gap-6 flex-wrap items-center justify-center mt-auto">
