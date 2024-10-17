@@ -31,7 +31,7 @@ const config: Config = {
           "100%": { opacity: "1" },
         },
         topdown: {
-          "0%": { bottom: "1000px" },
+          "0%": { bottom: "3000px" },
           "100%": { bottom: "0" },
         },
         slideup: {

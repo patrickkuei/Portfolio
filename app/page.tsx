@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
 const HeaderButton = ({
   children,
@@ -32,18 +34,49 @@ const DisplayedImg = ({
   src: string;
   imgClassName?: string;
 }) => {
+  const divRef = useRef<HTMLDivElement | null>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.intersectionRatio >= 0.7);
+      },
+      {
+        threshold: [0.7],
+      }
+    );
+
+    const currentDivRef = divRef.current;
+
+    if (currentDivRef) {
+      observer.observe(currentDivRef);
+    }
+
+    return () => {
+      if (currentDivRef) {
+        observer.unobserve(currentDivRef);
+      }
+    };
+  }, []);
+
   return (
-    <div className="flex flex-col bg-gradient-to-r from-black via-neutral-700 to-black w-[400px] h-60 pb-2 rounded opacity-0 animate-slide-up [animation-delay:3.2s]">
-      <div className="bg-white h-1 w-full mb-4 bg-gradient-to-r from-black via-neutral-500 to-black" />
-      <div className="overflow-hidden rounded">
-        <Image
-          className={imgClassName}
-          src={src}
-          alt={src}
-          width={400}
-          height={240}
-        />
-      </div>
+    <div
+      ref={divRef}
+      className={`flex flex-col items-center w-[35vw] h-auto bg-gradient-to-r from-black via-neutral-700 to-black pb-2 rounded opacity-0 animate-slide-up [animation-delay:3.2s] group`}
+    >
+      <div
+        className={`h-1 w-full mb-4 bg-gradient-to-r from-black via-neutral-200 to-black ${
+          isInView ? "opacity-100" : "opacity-30"
+        } transition-opacity duration-300`}
+      />
+      <Image
+        className={`rounded ${imgClassName}`}
+        src={src}
+        alt={src}
+        width={500}
+        height={400}
+      />
     </div>
   );
 };
@@ -62,7 +95,7 @@ export default function Home() {
         <HeaderButton no={3}>Linkedin</HeaderButton>
         <HeaderButton no={4}>Resume</HeaderButton>
       </header>
-      <main className="flex flex-col gap-20 items-center w-4/5 relative after:w-1 after:bg-white after:absolute after:top-0 after:top-[-64px] after:opacity-50 after:-z-10 after:animate-show-bg-line after:[animation-delay:2.7s]">
+      <main className="flex flex-col gap-20 items-center w-4/5 relative after:w-1 after:bg-white after:absolute after:top-[-64px] after:opacity-50 after:-z-10 after:animate-show-bg-line after:[animation-delay:2.7s]">
         <div className="bg-black w-fit h-fit">
           <div className="text-4xl text-white/50 py-20 opacity-0 animate-slide-up [animation-delay:3s]">
             <span>
@@ -87,7 +120,7 @@ export default function Home() {
           <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:4s]">
             some description
           </div>
-          <DisplayedImg src="/loading.png" imgClassName="relative top-[-35%]" />
+          <DisplayedImg src="/loading.png" />
         </div>
         <div className="w-full h-fit flex">
           <DisplayedImg src="/quickEdit.png" />
