@@ -16,7 +16,7 @@ const config: Config = {
         scifi5: "#e4eff0",
       },
       animation: {
-        "fill-from-left": "fill 2s cubic-bezier(.47,.09,.12,.9)",
+        "fill-from-left": "fill 1s cubic-bezier(.47,.09,.12,.9)",
         "show-name": "show .5s linear forwards",
         "show-bg-line": "topdown .5s linear forwards",
         "slide-up": "slideup .5s linear forwards",

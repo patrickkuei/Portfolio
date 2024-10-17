@@ -6,13 +6,16 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 const HeaderButton = ({
   children,
   no,
+  onClick,
 }: {
   children: ReactNode;
   no: number;
+  onClick: () => void;
 }) => {
   return (
     <div
       className={`relative grow h-full text-center border overflow-hidden border-scifi5/20 leading-[48px] backdrop-blur hover:cursor-pointer group`}
+      onClick={onClick}
     >
       <h2 className="transition-all duration-500 group-hover:-translate-y-full group-hover:opacity-0">
         {children}
@@ -63,7 +66,7 @@ const DisplayedImg = ({
   return (
     <div
       ref={divRef}
-      className={`flex flex-col items-center w-[35vw] h-auto bg-gradient-to-r from-black via-neutral-700 to-black pb-2 rounded opacity-0 animate-slide-up [animation-delay:3.2s] group`}
+      className={`flex flex-col items-center w-[35vw] h-auto bg-gradient-to-r from-black via-neutral-700 to-black pb-2 rounded opacity-0 animate-slide-up [animation-delay:3s] group`}
     >
       <div
         className={`h-1 w-full mb-4 bg-gradient-to-r from-black via-neutral-200 to-black ${
@@ -74,8 +77,8 @@ const DisplayedImg = ({
         className={`rounded ${imgClassName}`}
         src={src}
         alt={src}
-        width={500}
-        height={400}
+        width={600}
+        height={600}
       />
     </div>
   );
@@ -86,18 +89,44 @@ export default function Home() {
     <div className="flex flex-col items-center justify-items-center min-h-screen pb-20 px-6 pt-4 gap-16 font-mono">
       <header className="flex min-h-12 h-12 min-w-full justify-center items-center bg-black">
         <div className="w-1/2 h-full leading-[48px] animate-fill-from-left bg-scifi5/10 backdrop-blur">
-          <h2 className="opacity-0 ml-4 whitespace-nowrap animate-show-name [animation-delay:2s]">
+          <h2 className="opacity-0 ml-4 whitespace-nowrap animate-show-name [animation-delay:1s]">
             Shen-Kuei, Yang (Patrick)
           </h2>
         </div>
-        <HeaderButton no={1}>Work</HeaderButton>
-        <HeaderButton no={2}>Github</HeaderButton>
-        <HeaderButton no={3}>Linkedin</HeaderButton>
-        <HeaderButton no={4}>Resume</HeaderButton>
+        <HeaderButton
+          no={1}
+          onClick={() => (window.location.href = "http://localhost:3000/")}
+        >
+          Work
+        </HeaderButton>
+        <HeaderButton
+          no={2}
+          onClick={() => window.open("https://github.com/PatrickKuei")}
+        >
+          Github
+        </HeaderButton>
+        <HeaderButton
+          no={3}
+          onClick={() =>
+            window.open("https://www.linkedin.com/in/patrickyang-0a369415a/")
+          }
+        >
+          Linkedin
+        </HeaderButton>
+        <HeaderButton
+          no={4}
+          onClick={() =>
+            window.open(
+              "https://docs.google.com/document/d/10OZMaoulWk2vmFian1lOS9EMJqadVNhaUwTFNB-n7ZU/edit?usp=sharing"
+            )
+          }
+        >
+          Resume
+        </HeaderButton>
       </header>
-      <main className="flex flex-col gap-20 items-center w-4/5 relative after:w-1 after:bg-white after:absolute after:top-[-64px] after:opacity-50 after:-z-10 after:animate-show-bg-line after:[animation-delay:2.7s]">
+      <main className="flex flex-col gap-20 items-center w-4/5 relative after:w-1 after:bg-white after:absolute after:top-[-64px] after:opacity-50 after:-z-10 after:animate-show-bg-line after:[animation-delay:1.7s]">
         <div className="bg-black w-fit h-fit">
-          <div className="text-4xl text-white/50 py-20 opacity-0 animate-slide-up [animation-delay:3s]">
+          <div className="text-4xl text-white/50 py-20 opacity-0 animate-slide-up [animation-delay:2s]">
             <span>
               <span className="font-bold text-white">Engineer</span> with a
               designer&apos;s mindset,
@@ -112,19 +141,19 @@ export default function Home() {
         </div>
         <div className="w-full h-fit flex">
           <DisplayedImg src="/vyondGo.png" />
-          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:3.5s]">
+          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:3s]">
             some description
           </div>
         </div>
         <div className="w-full h-fit flex">
-          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:4s]">
+          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:3s]">
             some description
           </div>
           <DisplayedImg src="/loading.png" />
         </div>
         <div className="w-full h-fit flex">
           <DisplayedImg src="/quickEdit.png" />
-          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:4s]">
+          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:3.5s]">
             some description
           </div>
         </div>
