@@ -25,6 +25,29 @@ const HeaderButton = ({
   );
 };
 
+const DisplayedImg = ({
+  src,
+  imgClassName = "",
+}: {
+  src: string;
+  imgClassName?: string;
+}) => {
+  return (
+    <div className="flex flex-col bg-gradient-to-r from-black via-neutral-700 to-black w-[400px] h-60 pb-2 rounded opacity-0 animate-slide-up [animation-delay:3.2s]">
+      <div className="bg-white h-1 w-full mb-4 bg-gradient-to-r from-black via-neutral-500 to-black" />
+      <div className="overflow-hidden rounded">
+        <Image
+          className={imgClassName}
+          src={src}
+          alt={src}
+          width={400}
+          height={240}
+        />
+      </div>
+    </div>
+  );
+};
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-items-center min-h-screen pb-20 px-6 pt-4 gap-16 font-mono">
@@ -55,7 +78,7 @@ export default function Home() {
           </div>
         </div>
         <div className="w-full h-fit flex">
-          <div className="bg-white w-[400px] h-60 opacity-0 animate-slide-up [animation-delay:3.2s]"></div>
+          <DisplayedImg src="/vyondGo.png" />
           <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:3.5s]">
             some description
           </div>
@@ -64,7 +87,19 @@ export default function Home() {
           <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:4s]">
             some description
           </div>
-          <div className="bg-white w-[400px] h-60 opacity-0 animate-slide-up [animation-delay:3.8s]"></div>
+          <DisplayedImg src="/loading.png" imgClassName="relative top-[-35%]" />
+        </div>
+        <div className="w-full h-fit flex">
+          <DisplayedImg src="/quickEdit.png" />
+          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:4s]">
+            some description
+          </div>
+        </div>
+        <div className="w-full h-fit flex">
+          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:4s]">
+            some description
+          </div>
+          <DisplayedImg src="/textToImage.png" />
         </div>
       </main>
       <footer className="flex gap-6 flex-wrap items-center justify-center mt-auto">
