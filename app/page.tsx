@@ -324,7 +324,10 @@ export default function Home() {
         </div>
         <HeaderButton
           no={1}
-          onClick={() => (window.location.href = "http://localhost:3000/")}
+          onClick={() =>
+            (window.location.href =
+              "http://portfolio-patrickkueis-projects.vercel.app/")
+          }
         >
           Work
         </HeaderButton>
