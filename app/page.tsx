@@ -346,7 +346,7 @@ export default function Home() {
           no={4}
           onClick={() =>
             window.open(
-              "https://docs.google.com/document/d/10OZMaoulWk2vmFian1lOS9EMJqadVNhaUwTFNB-n7ZU/edit?usp=sharing"
+              "https://drive.google.com/file/d/1uUVMEL-8m9vzs5l7V0A5HPDE1okqOv5r/view?usp=sharing"
             )
           }
         >
@@ -419,7 +419,7 @@ export default function Home() {
           </a>
           <a
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="https://docs.google.com/document/d/10OZMaoulWk2vmFian1lOS9EMJqadVNhaUwTFNB-n7ZU/edit?usp=sharing"
+            href="https://drive.google.com/file/d/1uUVMEL-8m9vzs5l7V0A5HPDE1okqOv5r/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
           >
