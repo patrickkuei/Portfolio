@@ -30,23 +30,17 @@ const HeaderButton = ({
   );
 };
 
-const DisplayedImg = ({
-  src,
-  imgClassName = "",
-}: {
-  src: string;
-  imgClassName?: string;
-}) => {
+const useIntersectionObserver = (threshold: number) => {
   const divRef = useRef<HTMLDivElement | null>(null);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsInView(entry.intersectionRatio >= 0.7);
+        setIsInView(entry.intersectionRatio >= threshold);
       },
       {
-        threshold: [0.7],
+        threshold: [threshold],
       }
     );
 
@@ -62,6 +56,18 @@ const DisplayedImg = ({
       }
     };
   }, []);
+
+  return { divRef, isInView };
+};
+
+const DisplayedImg = ({
+  src,
+  imgClassName = "",
+}: {
+  src: string;
+  imgClassName?: string;
+}) => {
+  const { divRef, isInView } = useIntersectionObserver(0.7);
 
   return (
     <div
@@ -84,9 +90,232 @@ const DisplayedImg = ({
   );
 };
 
+const GoDescription = () => {
+  const { divRef, isInView } = useIntersectionObserver(1);
+
+  return (
+    <div
+      ref={divRef}
+      className="text-left my-auto opacity-0 w-[35vw] animate-slide-up [animation-delay:3s]"
+    >
+      <h2 className="text-2xl">VyondGo</h2>
+      <br />
+      <p className="text-white/50">
+        <span className="text-white">Vyond, &apos;24</span> — Next-gen{" "}
+        <span
+          className={`transition-colors duration-300 ${
+            isInView ? "text-white" : ""
+          }`}
+        >
+          AI
+        </span>{" "}
+        video creating tool
+      </p>
+      <br />
+      <ul className="text-sm text-white/50">
+        <li>Frontend</li>
+        <ul className="indent-6 border-l-2 border-white/30 ml-1">
+          <li
+            className={`before:content-['-'] before:mr-2 mb-1 transition-colors duration-300 ${
+              isInView ? "text-white" : ""
+            }`}
+          >
+            React v18.2.0
+          </li>
+          <li className="before:content-['-'] before:mr-2 mb-1">TypeScript</li>
+          <li className="before:content-['-'] before:mr-2 mb-1">Redux</li>
+          <li className="before:content-['-'] before:mr-2 mb-1">SCSS</li>
+        </ul>
+        <li>Backend</li>
+        <ul className="indent-6 border-l-2 border-white/30 ml-1">
+          <li
+            className={`before:content-['-'] before:mr-2 mb-1 transition-colors duration-300 ${
+              isInView ? "text-white" : ""
+            }`}
+          >
+            Node.js
+          </li>
+          <li className="before:content-['-'] before:mr-2 mb-1">RESTful API</li>
+          <li className="before:content-['-'] before:mr-2 mb-1">AWS</li>
+          <ul className="indent-6 border-l-2 border-white/30 ml-7">
+            <li className="before:content-['-'] before:mr-2">SQS</li>
+            <li className="before:content-['-'] before:mr-2">EC2</li>
+            <li className="before:content-['-'] before:mr-2">EKS</li>
+            <li className="before:content-['-'] before:mr-2">S3</li>
+          </ul>
+          <li className="before:content-['-'] before:mr-2 mb-1">Docker</li>
+        </ul>
+      </ul>
+    </div>
+  );
+};
+
+const LoadingDescription = () => {
+  const { divRef, isInView } = useIntersectionObserver(1);
+
+  return (
+    <div
+      ref={divRef}
+      className="text-left my-auto opacity-0 w-[35vw] animate-slide-up [animation-delay:3s]"
+    >
+      <h2 className="text-2xl">Brand New Loading Page</h2>
+      <br />
+      <p className="text-white/50">
+        <span className="text-white">Vyond, &apos;23</span> — Well{" "}
+        <span
+          className={`transition-colors duration-300 ${
+            isInView ? "text-white" : ""
+          }`}
+        >
+          expectant
+        </span>{" "}
+        instructions for users
+      </p>
+      <br />
+      <ul className="text-sm text-white/50">
+        <li>Frontend</li>
+        <ul className="indent-6 border-l-2 border-white/30 ml-1">
+          <li
+            className={`before:content-['-'] before:mr-2 mb-1 transition-colors duration-300 ${
+              isInView ? "text-white" : ""
+            }`}
+          >
+            React v18.2.0
+          </li>
+          <li className="before:content-['-'] before:mr-2 mb-1">TypeScript</li>
+          <li className="before:content-['-'] before:mr-2 mb-1">Redux</li>
+          <li className="before:content-['-'] before:mr-2 mb-1">SCSS</li>
+        </ul>
+      </ul>
+    </div>
+  );
+};
+
+const QeDescription = () => {
+  const { divRef, isInView } = useIntersectionObserver(1);
+
+  return (
+    <div
+      ref={divRef}
+      className="text-left my-auto opacity-0 w-[35vw] animate-slide-up [animation-delay:3s]"
+    >
+      <h2 className="text-2xl">QuickEdit</h2>
+      <br />
+      <p className="text-white/50">
+        <span className="text-white">Vyond, &apos;23</span> — Easy and fast to
+        use{" "}
+        <span
+          className={`transition-colors duration-300 ${
+            isInView ? "text-white" : ""
+          }`}
+        >
+          video editor
+        </span>{" "}
+      </p>
+      <br />
+      <ul className="text-sm text-white/50">
+        <li>Frontend</li>
+        <ul className="indent-6 border-l-2 border-white/30 ml-1">
+          <li
+            className={`before:content-['-'] before:mr-2 mb-1 transition-colors duration-300 ${
+              isInView ? "text-white" : ""
+            }`}
+          >
+            React v18.2.0
+          </li>
+          <li className="before:content-['-'] before:mr-2 mb-1">TypeScript</li>
+          <li className="before:content-['-'] before:mr-2 mb-1">Redux</li>
+          <li className="before:content-['-'] before:mr-2 mb-1">SCSS</li>
+        </ul>
+        <li>Backend</li>
+        <ul className="indent-6 border-l-2 border-white/30 ml-1">
+          <li
+            className={`before:content-['-'] before:mr-2 mb-1 transition-colors duration-300 ${
+              isInView ? "text-white" : ""
+            }`}
+          >
+            Node.js
+          </li>
+          <li className="before:content-['-'] before:mr-2 mb-1">RESTful API</li>
+          <li className="before:content-['-'] before:mr-2 mb-1">AWS</li>
+          <ul className="indent-6 border-l-2 border-white/30 ml-7">
+            <li className="before:content-['-'] before:mr-2">SQS</li>
+            <li className="before:content-['-'] before:mr-2">EC2</li>
+            <li className="before:content-['-'] before:mr-2">EKS</li>
+            <li className="before:content-['-'] before:mr-2">S3</li>
+          </ul>
+          <li className="before:content-['-'] before:mr-2 mb-1">Docker</li>
+        </ul>
+      </ul>
+    </div>
+  );
+};
+
+const T2iDescription = () => {
+  const { divRef, isInView } = useIntersectionObserver(1);
+
+  return (
+    <div
+      ref={divRef}
+      className="text-left my-auto opacity-0 w-[35vw] animate-slide-up [animation-delay:3s]"
+    >
+      <h2 className="text-2xl">Text to Image</h2>
+      <br />
+      <p className="text-white/50">
+        <span className="text-white">Vyond, &apos;22</span> — Anything creators
+        need,{" "}
+        <span
+          className={`transition-colors duration-300 ${
+            isInView ? "text-white" : ""
+          }`}
+        >
+          AI
+        </span>{" "}
+        generated assets
+      </p>
+      <br />
+      <ul className="text-sm text-white/50">
+        <li>Frontend</li>
+        <ul className="indent-6 border-l-2 border-white/30 ml-1">
+          <li
+            className={`before:content-['-'] before:mr-2 mb-1 transition-colors duration-300 ${
+              isInView ? "text-white" : ""
+            }`}
+          >
+            React v18.2.0
+          </li>
+          <li className="before:content-['-'] before:mr-2 mb-1">JavaScript</li>
+          <li className="before:content-['-'] before:mr-2 mb-1">React Flux</li>
+          <li className="before:content-['-'] before:mr-2 mb-1">
+            Styled Component
+          </li>
+        </ul>
+        <li>Backend</li>
+        <ul className="indent-6 border-l-2 border-white/30 ml-1">
+          <li
+            className={`before:content-['-'] before:mr-2 mb-1 transition-colors duration-300 ${
+              isInView ? "text-white" : ""
+            }`}
+          >
+            Node.js
+          </li>
+          <li className="before:content-['-'] before:mr-2 mb-1">RESTful API</li>
+          <li className="before:content-['-'] before:mr-2 mb-1">AWS</li>
+          <ul className="indent-6 border-l-2 border-white/30 ml-7">
+            <li className="before:content-['-'] before:mr-2">SQS</li>
+            <li className="before:content-['-'] before:mr-2">EC2</li>
+            <li className="before:content-['-'] before:mr-2">S3</li>
+          </ul>
+          <li className="before:content-['-'] before:mr-2 mb-1">Docker</li>
+        </ul>
+      </ul>
+    </div>
+  );
+};
+
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-items-center min-h-screen pb-20 px-6 pt-4 gap-16 font-mono">
+    <div className="flex flex-col items-center justify-items-center min-h-screen px-6 pt-4 gap-16 font-mono">
       <header className="flex min-h-12 h-12 min-w-full justify-center items-center bg-black">
         <div className="w-1/2 h-full leading-[48px] animate-fill-from-left bg-scifi5/10 backdrop-blur">
           <h2 className="opacity-0 ml-4 whitespace-nowrap animate-show-name [animation-delay:1s]">
@@ -139,77 +368,99 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <div className="w-full h-fit flex">
+        <div className="w-full h-fit flex justify-between">
           <DisplayedImg src="/vyondGo.png" />
-          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:3s]">
-            some description
-          </div>
+          <GoDescription />
         </div>
-        <div className="w-full h-fit flex">
-          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:3s]">
-            some description
-          </div>
+        <div className="w-full h-fit flex justify-between">
+          <LoadingDescription />
           <DisplayedImg src="/loading.png" />
         </div>
-        <div className="w-full h-fit flex">
+        <div className="w-full h-fit flex justify-between">
           <DisplayedImg src="/quickEdit.png" />
-          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:3.5s]">
-            some description
-          </div>
+          <QeDescription />
         </div>
-        <div className="w-full h-fit flex">
-          <div className="flex-1 text-center my-auto opacity-0 animate-slide-up [animation-delay:4s]">
-            some description
-          </div>
+        <div className="w-full h-fit flex justify-between">
+          <T2iDescription />
           <DisplayedImg src="/textToImage.png" />
         </div>
       </main>
-      <footer className="flex gap-6 flex-wrap items-center justify-center mt-auto">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <footer className="relative pb-20">
+        <div className="flex gap-10 justify-center mb-3">
+          <a
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href="https://github.com/PatrickKuei"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              aria-hidden
+              src="/github.png"
+              alt="github"
+              width={16}
+              height={16}
+            />
+            Github
+          </a>
+          <a
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href="https://www.linkedin.com/in/patrickyang-0a369415a/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              aria-hidden
+              src="/linkedin.png"
+              alt="linkedin"
+              width={16}
+              height={16}
+            />
+            Linkedin
+          </a>
+          <a
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href="https://docs.google.com/document/d/10OZMaoulWk2vmFian1lOS9EMJqadVNhaUwTFNB-n7ZU/edit?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              aria-hidden
+              src="/file.png"
+              alt="resume"
+              width={16}
+              height={16}
+            />
+            Resume →
+          </a>
+        </div>
+        <div className="text-center mb-3 flex">
+          <a
+            href="mailto:azureroki@gmail.com"
+            className="mr-8 flex items-center gap-2 hover:underline hover:underline-offset-4"
+          >
+            <Image
+              aria-hidden
+              src="/email.png"
+              alt="email"
+              width={16}
+              height={16}
+            />
+            azureroki@gmail.com
+          </a>
+          <span className="flex items-center gap-2 hover:underline hover:underline-offset-4">
+            <Image
+              aria-hidden
+              src="/phone.png"
+              alt="phone"
+              width={16}
+              height={16}
+            />
+            +886-973-217-569
+          </span>
+        </div>
+        <div className="absolute bottom-4 text-white/50">
+          © 2024 Shen-Kuei Yang. All rights reserved.
+        </div>
       </footer>
     </div>
   );
