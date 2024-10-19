@@ -20,6 +20,7 @@ const config: Config = {
         "show-name": "show .5s linear forwards",
         "show-bg-line": "topdown .5s linear forwards",
         "slide-up": "slideup .5s linear forwards",
+        "auto-rotate": "autorotate 30s linear infinite",
       },
       keyframes: {
         fill: {
@@ -31,12 +32,16 @@ const config: Config = {
           "100%": { opacity: "1" },
         },
         topdown: {
-          "0%": { bottom: "3000px" },
+          "0%": { bottom: "5000px" },
           "100%": { bottom: "0" },
         },
         slideup: {
           "0%": { transform: "translateY(30%)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        autorotate: {
+          "0%": { transform: "perspective(1000px) rotateY(0deg)" },
+          "100%": { transform: "perspective(1000px) rotateY(360deg)" },
         },
       },
     },

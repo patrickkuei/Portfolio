@@ -55,7 +55,7 @@ const useIntersectionObserver = (threshold: number) => {
         observer.unobserve(currentDivRef);
       }
     };
-  }, []);
+  }, [threshold]);
 
   return { divRef, isInView };
 };
@@ -104,7 +104,7 @@ const GoDescription = () => {
         <span className="text-white">Vyond, &apos;24</span> — Next-gen{" "}
         <span
           className={`transition-colors duration-300 ${
-            isInView ? "text-white" : ""
+            isInView ? "text-white drop-shadow-[1px_0px_10px_#ffffff]" : ""
           }`}
         >
           AI
@@ -117,7 +117,7 @@ const GoDescription = () => {
         <ul className="indent-6 border-l-2 border-white/30 ml-1">
           <li
             className={`before:content-['-'] before:mr-2 mb-1 transition-colors duration-300 ${
-              isInView ? "text-white" : ""
+              isInView ? "text-white drop-shadow-[1px_0px_10px_#ffffff]" : ""
             }`}
           >
             React v18.2.0
@@ -130,7 +130,7 @@ const GoDescription = () => {
         <ul className="indent-6 border-l-2 border-white/30 ml-1">
           <li
             className={`before:content-['-'] before:mr-2 mb-1 transition-colors duration-300 ${
-              isInView ? "text-white" : ""
+              isInView ? "text-white drop-shadow-[1px_0px_10px_#ffffff]" : ""
             }`}
           >
             Node.js
@@ -164,7 +164,7 @@ const LoadingDescription = () => {
         <span className="text-white">Vyond, &apos;23</span> — Well{" "}
         <span
           className={`transition-colors duration-300 ${
-            isInView ? "text-white" : ""
+            isInView ? "text-white drop-shadow-[1px_0px_10px_#ffffff]" : ""
           }`}
         >
           expectant
@@ -177,7 +177,7 @@ const LoadingDescription = () => {
         <ul className="indent-6 border-l-2 border-white/30 ml-1">
           <li
             className={`before:content-['-'] before:mr-2 mb-1 transition-colors duration-300 ${
-              isInView ? "text-white" : ""
+              isInView ? "text-white drop-shadow-[1px_0px_10px_#ffffff]" : ""
             }`}
           >
             React v18.2.0
@@ -206,7 +206,7 @@ const QeDescription = () => {
         use{" "}
         <span
           className={`transition-colors duration-300 ${
-            isInView ? "text-white" : ""
+            isInView ? "text-white drop-shadow-[1px_0px_10px_#ffffff]" : ""
           }`}
         >
           video editor
@@ -218,7 +218,7 @@ const QeDescription = () => {
         <ul className="indent-6 border-l-2 border-white/30 ml-1">
           <li
             className={`before:content-['-'] before:mr-2 mb-1 transition-colors duration-300 ${
-              isInView ? "text-white" : ""
+              isInView ? "text-white drop-shadow-[1px_0px_10px_#ffffff]" : ""
             }`}
           >
             React v18.2.0
@@ -231,7 +231,7 @@ const QeDescription = () => {
         <ul className="indent-6 border-l-2 border-white/30 ml-1">
           <li
             className={`before:content-['-'] before:mr-2 mb-1 transition-colors duration-300 ${
-              isInView ? "text-white" : ""
+              isInView ? "text-white drop-shadow-[1px_0px_10px_#ffffff]" : ""
             }`}
           >
             Node.js
@@ -262,11 +262,13 @@ const T2iDescription = () => {
       <h2 className="text-2xl">Text to Image</h2>
       <br />
       <p className="text-white/50">
-        <span className="text-white">Vyond, &apos;22</span> — Anything creators
-        need,{" "}
+        <span className="text-white drop-shadow-[1px_0px_10px_#ffffff]">
+          Vyond, &apos;22
+        </span>{" "}
+        — Anything creators need,{" "}
         <span
           className={`transition-colors duration-300 ${
-            isInView ? "text-white" : ""
+            isInView ? "text-white drop-shadow-[1px_0px_10px_#ffffff]" : ""
           }`}
         >
           AI
@@ -279,7 +281,7 @@ const T2iDescription = () => {
         <ul className="indent-6 border-l-2 border-white/30 ml-1">
           <li
             className={`before:content-['-'] before:mr-2 mb-1 transition-colors duration-300 ${
-              isInView ? "text-white" : ""
+              isInView ? "text-white drop-shadow-[1px_0px_10px_#ffffff]" : ""
             }`}
           >
             React v18.2.0
@@ -294,7 +296,7 @@ const T2iDescription = () => {
         <ul className="indent-6 border-l-2 border-white/30 ml-1">
           <li
             className={`before:content-['-'] before:mr-2 mb-1 transition-colors duration-300 ${
-              isInView ? "text-white" : ""
+              isInView ? "text-white drop-shadow-[1px_0px_10px_#ffffff]" : ""
             }`}
           >
             Node.js
@@ -314,6 +316,10 @@ const T2iDescription = () => {
 };
 
 export default function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-items-center min-h-screen px-6 pt-4 gap-16 font-mono">
       <header className="flex min-h-12 h-12 min-w-full justify-center items-center bg-black">
@@ -386,6 +392,61 @@ export default function Home() {
         <div className="w-full h-fit flex justify-between">
           <T2iDescription />
           <DisplayedImg src="/textToImage.png" />
+        </div>
+        <div className="w-full text-center bg-black">
+          <h2 className="text-2xl my-20">Side Project</h2>
+          <div id="bannder" className="text-center w-full h-[500px] relative">
+            <div
+              id="slider"
+              style={{ "--quantity": 4 } as React.CSSProperties}
+              className="absolute w-[400px] h-[200px] top-1/4 left-[calc(50%-200px)] [transform:perspective(1000px)] [transform-style:preserve-3d] animate-auto-rotate"
+            >
+              <div
+                className="item"
+                style={{ "--position": 1 } as React.CSSProperties}
+              >
+                <Image
+                  src="/indieGame.png"
+                  alt="indieGame"
+                  fill={true}
+                  className="object-cover"
+                />
+              </div>
+              <div
+                className="item"
+                style={{ "--position": 2 } as React.CSSProperties}
+              >
+                <Image
+                  src="/roGpt.png"
+                  alt="indieGame"
+                  fill={true}
+                  className="object-cover"
+                />
+              </div>
+              <div
+                className="item"
+                style={{ "--position": 3 } as React.CSSProperties}
+              >
+                <Image
+                  src="/ue5Ro.png"
+                  alt="indieGame"
+                  fill={true}
+                  className="object-cover"
+                />
+              </div>
+              <div
+                className="item"
+                style={{ "--position": 4 } as React.CSSProperties}
+              >
+                <Image
+                  src="/autoGame.png"
+                  alt="indieGame"
+                  fill={true}
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </main>
       <footer className="relative pb-20">
