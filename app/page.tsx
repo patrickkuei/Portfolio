@@ -599,7 +599,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-items-center min-h-screen px-6 pt-4 gap-16 font-mono">
-      <header className="flex min-h-12 h-12 min-w-full justify-center items-center bg-black">
+      <header className="flex min-h-12 h-12 min-w-full justify-center items-center bg-black sticky top-0 z-50">
         <div className="w-1/2 h-full leading-[48px] animate-fill-from-left bg-scifi5/10 backdrop-blur">
           <h2 className="opacity-0 ml-4 whitespace-nowrap animate-show-name [animation-delay:1s]">
             Shen-Kuei, Yang (Patrick)
