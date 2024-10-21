@@ -335,7 +335,9 @@ const SideProject = () => {
       }, 16);
 
     return () => {
-      interval && clearInterval(interval);
+      if (interval) {
+        clearInterval(interval);
+      }
     };
   }, [shouldAuto]);
 
