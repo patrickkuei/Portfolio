@@ -315,6 +315,281 @@ const T2iDescription = () => {
   );
 };
 
+const SideProject = () => {
+  const [shouldAuto, setShouldAuto] = useState(true);
+  const bannerRef = useRef<HTMLDivElement>(null);
+  const [currentDegree, setCurrentDegree] = useState(0);
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+
+  const handleClick = (item: number) => {
+    setCurrentDegree(-item * 90);
+    setShouldAuto(false);
+    setSelectedProject(item);
+  };
+
+  useEffect(() => {
+    const interval =
+      shouldAuto &&
+      setInterval(() => {
+        setCurrentDegree((prev) => prev - 0.192);
+      }, 16);
+
+    return () => {
+      interval && clearInterval(interval);
+    };
+  }, [shouldAuto]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        bannerRef.current &&
+        !bannerRef.current.contains(event.target as HTMLElement)
+      ) {
+        setShouldAuto(true);
+        setSelectedProject(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [bannerRef]);
+
+  const [isHover, setIsHover] = useState({
+    0: false,
+    1: false,
+    2: false,
+    3: false,
+  });
+
+  const handleImgHover = () => {
+    if (selectedProject === null) return;
+    setIsHover((prev) => ({ ...prev, [selectedProject]: true }));
+  };
+
+  const handleImgLeave = () => {
+    if (selectedProject === null) return;
+    setIsHover((prev) => ({ ...prev, [selectedProject]: false }));
+  };
+
+  return (
+    <div className="w-full text-center bg-black">
+      <h2 className="text-2xl mt-20 mb-4">Side Project</h2>
+      <ul className="flex justify-center gap-6 text-white/50 mb-20">
+        <li
+          className={`px-4 py-1 hover:cursor-pointer transition-all duration-300 hover:drop-shadow-[1px_0px_5px_#ffffff] ${
+            selectedProject === 0 ? "text-white" : ""
+          }`}
+          onClick={() => handleClick(0)}
+        >
+          Indie MMORPG
+        </li>
+        <li
+          className={`px-4 py-1 hover:cursor-pointer transition-all duration-300 hover:drop-shadow-[1px_0px_5px_#ffffff] ${
+            selectedProject === 1 ? "text-white" : ""
+          }`}
+          onClick={() => handleClick(1)}
+        >
+          MMORPG ft.ChatGPT
+        </li>
+        <li
+          className={`px-4 py-1 hover:cursor-pointer transition-all duration-300 hover:drop-shadow-[1px_0px_5px_#ffffff] ${
+            selectedProject === 2 ? "text-white" : ""
+          }`}
+          onClick={() => handleClick(2)}
+        >
+          UE5 Game Remake
+        </li>
+        <li
+          className={`px-4 py-1 hover:cursor-pointer transition-all duration-300 hover:drop-shadow-[1px_0px_5px_#ffffff] ${
+            selectedProject === 3 ? "text-white" : ""
+          }`}
+          onClick={() => handleClick(3)}
+        >
+          Game Autoplay Plugin
+        </li>
+      </ul>
+      <div
+        id="bannder"
+        ref={bannerRef}
+        className="text-center w-full h-[500px] relative"
+        onMouseEnter={handleImgHover}
+        onMouseLeave={handleImgLeave}
+      >
+        <div
+          id="slider"
+          style={
+            {
+              "--quantity": 4,
+              transform: `perspective(1000px) rotateY(${currentDegree}deg)`,
+            } as React.CSSProperties
+          }
+          className={`absolute w-[400px] h-[200px] top-1/4 left-[calc(50%-200px)] [transform:perspective(1000px)] [transform-style:preserve-3d] transition-all duration-300`}
+        >
+          <div
+            className="item relative overflow-hidden"
+            style={{ "--position": 1 } as React.CSSProperties}
+          >
+            <Image
+              src="/indieGame.png"
+              alt="indieGame"
+              fill={true}
+              className="object-cover"
+            />
+            <div
+              className={`absolute flex inset-0 bg-black/80 flex-col items-center justify-center ${
+                isHover[0] ? "opacity-100" : "opacity-0"
+              } transition-all duration-300`}
+            >
+              <h3 className="mb-2">Indie MMORPG</h3>
+              <div
+                className={`h-[1px] w-1/2 mb-1 bg-gradient-to-r from-black/5 via-neutral-200 to-black/5`}
+              />
+              <ul className="text-[8px] text-white/50 text-left">
+                <li
+                  className={`before:content-['-'] before:mr-2 text-white drop-shadow-[1px_0px_10px_#ffffff]`}
+                >
+                  Unity 2022.3.17f1
+                </li>
+                <ul className="indent-6 border-l border-white/30 ml-[2px]">
+                  <li className="before:content-['-'] before:mr-2">C#</li>
+                  <li className="before:content-['-'] before:mr-2">Mirror</li>
+                  <li className="before:content-['-'] before:mr-2">Zenject</li>
+                </ul>
+                <li className="before:content-['-'] before:mr-2">Aseprite</li>
+                <li className="before:content-['-'] before:mr-2">Github</li>
+                <li className="before:content-['-'] before:mr-2">DVC</li>
+                <li className="before:content-['-'] before:mr-2">PostgreSQL</li>
+              </ul>
+            </div>
+          </div>
+          <div
+            className="item relative overflow-hidden"
+            style={{ "--position": 2 } as React.CSSProperties}
+          >
+            <Image
+              src="/roGpt.png"
+              alt="roGpt"
+              fill={true}
+              className="object-cover"
+            />
+            <div
+              className={`absolute flex inset-0 bg-black/80 flex-col items-center justify-center ${
+                isHover[1] ? "opacity-100" : "opacity-0"
+              } transition-all duration-300`}
+            >
+              <h3 className="mb-2">MMORPG ft.ChatGPT</h3>
+              <div
+                className={`h-[1px] w-1/2 mb-1 bg-gradient-to-r from-black/5 via-neutral-200 to-black/5`}
+              />
+              <ul className="text-[8px] text-white/50 text-left">
+                <li
+                  className={`before:content-['-'] before:mr-2 text-white drop-shadow-[1px_0px_10px_#ffffff]`}
+                >
+                  OpenAI API
+                </li>
+                <ul className="indent-6 border-l border-white/30 ml-[2px]">
+                  <li className="before:content-['-'] before:mr-2">
+                    LangChain
+                  </li>
+                </ul>
+                <li className="before:content-['-'] before:mr-2">
+                  Ragnarok Private Server
+                </li>
+                <ul className="indent-6 border-l border-white/30 ml-[2px]">
+                  <li className="before:content-['-'] before:mr-2">rAthena</li>
+                  <li className="before:content-['-'] before:mr-2">MySQL</li>
+                </ul>
+                <li className="before:content-['-'] before:mr-2">OpenKore</li>
+                <ul className="indent-6 border-l border-white/30 ml-[2px]">
+                  <li className="before:content-['-'] before:mr-2">Perl</li>
+                </ul>
+              </ul>
+            </div>
+          </div>
+          <div
+            className="item relative overflow-hidden"
+            style={{ "--position": 3 } as React.CSSProperties}
+          >
+            <Image
+              src="/ue5Ro.png"
+              alt="ue5Ro"
+              fill={true}
+              className="object-cover"
+            />
+            <div
+              className={`absolute flex inset-0 bg-black/80 flex-col items-center justify-center ${
+                isHover[2] ? "opacity-100" : "opacity-0"
+              } transition-all duration-300`}
+            >
+              <h3 className="mb-2">UE5 Game Remake</h3>
+              <div
+                className={`h-[1px] w-1/2 mb-1 bg-gradient-to-r from-black/5 via-neutral-200 to-black/5`}
+              />
+              <ul className="text-[8px] text-white/50 text-left">
+                <li
+                  className={`before:content-['-'] before:mr-2 text-white drop-shadow-[1px_0px_10px_#ffffff]`}
+                >
+                  Unreal Engine 5
+                </li>
+                <ul className="indent-6 border-l border-white/30 ml-[2px]">
+                  <li className="before:content-['-'] before:mr-2">
+                    Blueprints
+                  </li>
+                </ul>
+                <li className="before:content-['-'] before:mr-2">
+                  Blender 2.8
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            className="item relative overflow-hidden"
+            style={{ "--position": 4 } as React.CSSProperties}
+          >
+            <Image
+              src="/autoGame.png"
+              alt="autoGame"
+              fill={true}
+              className="object-cover"
+            />
+            <div
+              className={`absolute flex inset-0 bg-black/80 flex-col items-center justify-center ${
+                isHover[3] ? "opacity-100" : "opacity-0"
+              } transition-all duration-300`}
+            >
+              <h3 className="mb-2">Game Autoplay Plugin</h3>
+              <div
+                className={`h-[1px] w-1/2 mb-1 bg-gradient-to-r from-black/5 via-neutral-200 to-black/5`}
+              />
+              <ul className="text-[8px] text-white/50 text-left">
+                <li
+                  className={`before:content-['-'] before:mr-2 text-white drop-shadow-[1px_0px_10px_#ffffff]`}
+                >
+                  Quick Macro
+                </li>
+                <ul className="indent-6 border-l border-white/30 ml-[2px]">
+                  <li className="before:content-['-'] before:mr-2">
+                    Image Analysis
+                  </li>
+                  <li className="before:content-['-'] before:mr-2">
+                    Color Finding
+                  </li>
+                </ul>
+                <li className="before:content-['-'] before:mr-2">
+                  Gameplay Pattern Analysis
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function Home() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -366,7 +641,7 @@ export default function Home() {
         <div className="bg-black w-fit h-fit">
           <div className="text-4xl text-white/50 py-20 opacity-0 animate-slide-up [animation-delay:2s]">
             <span>
-              <span className="font-bold text-white">Engineer</span> with a
+              An <span className="font-bold text-white">Engineer</span> with
               designer&apos;s mindset,
             </span>
             <br />
@@ -393,61 +668,7 @@ export default function Home() {
           <T2iDescription />
           <DisplayedImg src="/textToImage.png" />
         </div>
-        <div className="w-full text-center bg-black">
-          <h2 className="text-2xl my-20">Side Project</h2>
-          <div id="bannder" className="text-center w-full h-[500px] relative">
-            <div
-              id="slider"
-              style={{ "--quantity": 4 } as React.CSSProperties}
-              className="absolute w-[400px] h-[200px] top-1/4 left-[calc(50%-200px)] [transform:perspective(1000px)] [transform-style:preserve-3d] animate-auto-rotate"
-            >
-              <div
-                className="item"
-                style={{ "--position": 1 } as React.CSSProperties}
-              >
-                <Image
-                  src="/indieGame.png"
-                  alt="indieGame"
-                  fill={true}
-                  className="object-cover"
-                />
-              </div>
-              <div
-                className="item"
-                style={{ "--position": 2 } as React.CSSProperties}
-              >
-                <Image
-                  src="/roGpt.png"
-                  alt="indieGame"
-                  fill={true}
-                  className="object-cover"
-                />
-              </div>
-              <div
-                className="item"
-                style={{ "--position": 3 } as React.CSSProperties}
-              >
-                <Image
-                  src="/ue5Ro.png"
-                  alt="indieGame"
-                  fill={true}
-                  className="object-cover"
-                />
-              </div>
-              <div
-                className="item"
-                style={{ "--position": 4 } as React.CSSProperties}
-              >
-                <Image
-                  src="/autoGame.png"
-                  alt="indieGame"
-                  fill={true}
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <SideProject />
       </main>
       <footer className="relative pb-20">
         <div className="flex gap-10 justify-center mb-3">
