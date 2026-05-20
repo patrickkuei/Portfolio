@@ -46,13 +46,7 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, s
   const asTag = `h${level}` as keyof JSX.IntrinsicElements;
 
   return (
-    <Flex
-      style={style}
-      onClick={() => copyURL(id)}
-      className={styles.control}
-      vertical="center"
-      gap="4"
-    >
+    <Flex style={style} className={styles.control} vertical="center" gap="4">
       <Heading className={styles.text} id={id} variant={variant} as={asTag}>
         {children}
       </Heading>
@@ -63,6 +57,7 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, s
         variant="ghost"
         tooltip="Copy"
         tooltipPosition="right"
+        onClick={() => copyURL(id)}
       />
     </Flex>
   );

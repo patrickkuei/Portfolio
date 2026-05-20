@@ -33,31 +33,31 @@ const display: DisplayConfig = {
 const protectedRoutes: ProtectedRoutesConfig = {};
 
 // Import and set font for each variant
-import { Geist } from "next/font/google";
-import { Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Exo_2, Space_Mono } from "next/font/google";
 
-const heading = Geist({
+const heading = Space_Grotesk({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
 });
 
-const body = Geist({
+const body = Exo_2({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
 
-const label = Geist({
+const label = Space_Grotesk({
   variable: "--font-label",
   subsets: ["latin"],
   display: "swap",
 });
 
-const code = Geist_Mono({
+const code = Space_Mono({
   variable: "--font-code",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "700"],
 });
 
 const fonts: FontsConfig = {

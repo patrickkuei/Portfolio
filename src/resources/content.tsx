@@ -45,7 +45,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building products people love to use</>,
+  headline: <>I see a gap,<br />I build the thing</>,
   featured: {
     display: false,
     title: <>Featured work</>,
@@ -53,12 +53,11 @@ const home: Home = {
   },
   subline: (
     <>
-      I&apos;m Patrick, a full-stack engineer with 5+ years of experience building{" "}
+      Full-stack engineer who ships real products —<br />
+      from a UI library to a social platform with real users.<br />
       <Text as="span" size="xl" weight="strong">
-        AI-powered
-      </Text>{" "}
-      products at scale. Early AI agent adopter since 2022, leveraging LLM-powered workflows to
-      ship faster and smarter.
+        Now building toward space.
+      </Text>
     </>
   ),
 };
@@ -84,11 +83,12 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I&apos;m a Tokyo-based full-stack engineer with 5+ years of experience shipping
-        AI-powered products. At Vyond, I led the flagship Text-to-Video product from concept to
-        production, driving company revenue from below-target to consistently exceeding goals by
-        5%+. I&apos;ve been building with LLMs and agentic workflows since 2022 — not as a
-        buzzword, but as a genuine force multiplier for delivery and testing.
+        I&apos;m a Tokyo-based full-stack engineer with 5+ years of experience. My pattern is
+        simple: I see something missing or broken, and I build the fix. A UI library because most
+        are painful to use. A Steam social platform because the wish list UX was broken. A
+        satellite dashboard because I want to work on things that matter at a larger scale. At
+        Vyond I led the flagship Text-to-Video product from concept to production — shipping
+        real features with real users is what drives me. Now aiming that same impulse at space.
       </>
     ),
   },
