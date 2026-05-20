@@ -4,7 +4,7 @@ Personal portfolio of Shen-Kuei Yang (Patrick), full-stack engineer based in Tok
 
 Built with [magic-portfolio](https://github.com/once-ui-system/magic-portfolio) (Once UI + Next.js).
 
-**Live:** https://portfolio-patrickkueis-projects.vercel.app
+**Live:** https://shenkueiyang-portfolio.vercel.app
 
 ## Stack
 
