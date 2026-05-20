@@ -5,11 +5,11 @@ const person: Person = {
   firstName: "Patrick",
   lastName: "Yang",
   name: "Shen-Kuei Yang (Patrick)",
-  role: "Software Engineer",
+  role: "Full-Stack Engineer",
   avatar: "/images/avatar.jpg",
   email: "azureroki@gmail.com",
-  location: "Asia/Taipei",
-  languages: ["English", "Mandarin"],
+  location: "Asia/Tokyo",
+  languages: ["English", "Mandarin", "Japanese"],
 };
 
 const newsletter: Newsletter = {
@@ -22,7 +22,7 @@ const social: Social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/PatrickKuei",
+    link: "https://github.com/patrickkuei",
     essential: true,
   },
   {
@@ -53,11 +53,12 @@ const home: Home = {
   },
   subline: (
     <>
-      I&apos;m Patrick, a software engineer with 4+ years of experience building{" "}
+      I&apos;m Patrick, a full-stack engineer with 5+ years of experience building{" "}
       <Text as="span" size="xl" weight="strong">
         AI-powered
       </Text>{" "}
-      web products at scale. I love crafting intuitive user experiences and clean, maintainable code.
+      products at scale. Early AI agent adopter since 2022, leveraging LLM-powered workflows to
+      ship faster and smarter.
     </>
   ),
 };
@@ -66,7 +67,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} based in Taiwan`,
+  description: `Meet ${person.name}, ${person.role} based in Tokyo, Japan`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -83,11 +84,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I&apos;m a Taiwan-based software engineer with a passion for building products that sit at
-        the intersection of great engineering and great user experience. I&apos;ve spent 4+ years
-        shipping AI-powered video creation tools at Vyond, working across the full stack — from
-        React frontends to Node.js APIs and AWS infrastructure. Outside of work, I explore game
-        development and indie projects.
+        I&apos;m a Tokyo-based full-stack engineer with 5+ years of experience shipping
+        AI-powered products. At Vyond, I led the flagship Text-to-Video product from concept to
+        production, driving company revenue from below-target to consistently exceeding goals by
+        5%+. I&apos;ve been building with LLMs and agentic workflows since 2022 — not as a
+        buzzword, but as a genuine force multiplier for delivery and testing.
       </>
     ),
   },
@@ -97,24 +98,58 @@ const about: About = {
     experiences: [
       {
         company: "Vyond",
-        timeframe: "2021 - 2025",
+        timeframe: "Jan 2022 – Present",
         role: "Software Engineer",
         achievements: [
           <>
-            Built <strong>VyondGo</strong>, a next-gen AI video creation tool from the ground up
-            using React, TypeScript, and Redux, serving thousands of creators globally.
+            Led flagship <strong>Text-to-Video</strong> product from concept to production,
+            transforming company revenue from below-target to consistently exceeding goals by{" "}
+            <strong>5%+</strong> with <strong>90%+</strong> user satisfaction.
           </>,
           <>
-            Developed <strong>QuickEdit</strong>, a fast inline video editor that reduced user
-            editing time, integrating with SQS-based rendering pipelines on AWS.
+            Pioneered hook-based architecture adoption across <strong>50+ engineers</strong>,
+            replacing legacy patterns and establishing reusable components adopted company-wide.
           </>,
           <>
-            Shipped <strong>Text to Image</strong>, an AI asset generation feature powered by
-            diffusion models, enabling creators to generate custom visuals on demand.
+            Rebuilt testing infrastructure from <strong>0% to 80% coverage</strong> via
+            AI-assisted development, integrating Jest into CI pipeline.
           </>,
           <>
-            Redesigned the <strong>loading page</strong> experience with animated instructions that
-            reduced user drop-off during video rendering waits.
+            Optimized rendering performance from <strong>4,000 re-renders to 1</strong> through
+            hook-based architectural refactoring.
+          </>,
+          <>
+            Mentored <strong>6 engineers</strong> including 2 senior leads, established
+            company&apos;s first frontend documentation, and drove TypeScript adoption across teams.
+          </>,
+          <>
+            Led multi-national regression testing, resolved P3 issues same-day, and prevented P1
+            incidents through proactive API review processes.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Varmeego",
+        timeframe: "Aug 2020 – Aug 2021",
+        role: "Software Engineer",
+        achievements: [
+          <>
+            Led team of 3 in full-stack development (React, React Native, Angular, Java Spring
+            Boot); reduced codebase duplication by <strong>50%</strong> through refactoring and
+            delivered all projects on schedule with high customer satisfaction.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "DISCO Corporation & Win Semiconductor",
+        timeframe: "Apr 2017 – Aug 2019",
+        role: "Engineer",
+        achievements: [
+          <>
+            Built web-based HR management system replacing legacy Excel workflows, improving
+            operational efficiency by <strong>70%</strong>.
           </>,
         ],
         images: [],
@@ -126,8 +161,10 @@ const about: About = {
     title: "Studies",
     institutions: [
       {
-        name: "National Taiwan University of Science and Technology",
-        description: <>B.S. in Computer Science and Information Engineering.</>,
+        name: "Chung Yuan Christian University",
+        description: (
+          <>B.S. in Biomedical Engineering (Information Technology), 2015.</>
+        ),
       },
     ],
   },
@@ -139,14 +176,16 @@ const about: About = {
         title: "Frontend",
         description: (
           <>
-            Building polished, performant UIs with React, TypeScript, Redux, and SCSS — from design
-            systems to complex interactive editors.
+            Building polished, performant UIs with React, TypeScript, Redux, and SCSS — from
+            design systems to complex interactive editors.
           </>
         ),
         tags: [
           { name: "React", icon: "react" },
           { name: "TypeScript", icon: "typescript" },
           { name: "Next.js", icon: "nextjs" },
+          { name: "React Native", icon: "react" },
+          { name: "Angular", icon: "angular" },
         ],
         images: [],
       },
@@ -154,28 +193,32 @@ const about: About = {
         title: "Backend & Cloud",
         description: (
           <>
-            Scalable APIs and async pipelines with Node.js, RESTful services, Docker, and AWS (SQS,
-            EC2, EKS, S3).
+            Scalable APIs and async pipelines with Node.js, Java Spring Boot, Docker, and AWS
+            (SQS, EC2, EKS, S3).
           </>
         ),
         tags: [
           { name: "Node.js", icon: "node" },
           { name: "AWS", icon: "aws" },
           { name: "Docker", icon: "docker" },
+          { name: "Java Spring Boot", icon: "java" },
         ],
         images: [],
       },
       {
-        title: "Game Development",
+        title: "AI & Automation",
         description: (
           <>
-            Indie game development with Unity (C#, Mirror networking, Zenject DI) and Unreal Engine
-            5 (Blueprints, Blender assets).
+            Early AI agent adopter since 2022. Building LLM-powered agentic workflows with
+            LangChain, OpenAI, Gemini, and Claude APIs — including MCP integrations and
+            AI-assisted development pipelines.
           </>
         ),
         tags: [
-          { name: "Unity", icon: "unity" },
-          { name: "C#", icon: "csharp" },
+          { name: "LangChain", icon: "langchain" },
+          { name: "OpenAI API", icon: "openai" },
+          { name: "Claude API", icon: "anthropic" },
+          { name: "MCP", icon: "mcp" },
         ],
         images: [],
       },

@@ -1,0 +1,27 @@
+---
+title: "AI Game Agent — Autonomous LLM-Powered Game Bot"
+publishedAt: "2022-10-01"
+summary: "An autonomous game bot using LangChain and OpenAI API with function calling, implementing an agentic decision loop — one of my earliest production uses of agent architecture in 2022."
+images:
+  - "/images/projects/ai-game-agent/cover-01.jpg"
+team:
+  - name: "Shen-Kuei Yang (Patrick)"
+    role: "Software Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/patrickyang-0a369415a/"
+---
+
+## Overview
+
+Built in 2022 — before "AI agents" became mainstream — this project was an early exploration of autonomous LLM decision-making applied to game automation. The agent plays a game independently, making decisions (attack, rest, shop) by invoking tools through OpenAI's function calling API.
+
+## Key Contributions
+
+- **Agentic Decision Loop**: Designed a full action-selection loop where the LLM evaluates game state and picks the next action (attack/rest/shop) autonomously via function calling.
+- **LangChain Integration**: Used LangChain to chain prompts, manage memory, and wire up tool calls — an early production adoption of the framework.
+- **Infrastructure**: Ran the agent loop via cron job with a middleware layer handling game API interactions and response parsing.
+
+## Technologies
+
+- **AI**: LangChain, OpenAI API (function calling)
+- **Backend**: Node.js, Cron
