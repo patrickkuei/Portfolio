@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "Bash(npm run *)",
+      "Bash(git checkout *)",
+      "Bash(gh api *)",
+      "PowerShell(git clone *)",
+      "PowerShell(Get-ChildItem \"C:\\\\KUEI\\\\PROGRAMMING\\\\WEB\\\\magic-portfolio-temp\\\\src\" -Force | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem \"C:\\\\KUEI\\\\PROGRAMMING\\\\WEB\\\\magic-portfolio-temp\\\\src\\\\resources\" -Force | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem \"C:\\\\KUEI\\\\PROGRAMMING\\\\WEB\\\\portfolio\\\\src\\\\app\" -Force | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem \"C:\\\\KUEI\\\\PROGRAMMING\\\\WEB\\\\portfolio\\\\src\\\\app\\\\work\" -Force | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem \"C:\\\\KUEI\\\\PROGRAMMING\\\\WEB\\\\portfolio\\\\src\\\\app\\\\work\\\\projects\" -Force | ForEach-Object { $_.FullName })",
+      "PowerShell(New-Item *)",
+      "PowerShell(Get-ChildItem \"C:\\\\KUEI\\\\PROGRAMMING\\\\WEB\\\\portfolio\\\\public\" -Force | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem \"C:\\\\KUEI\\\\PROGRAMMING\\\\WEB\\\\portfolio\\\\public\\\\images\" -Recurse -Force | ForEach-Object { $_.FullName })",
+      "PowerShell(Copy-Item *)",
+      "PowerShell(Get-ChildItem \"C:\\\\KUEI\\\\PROGRAMMING\\\\WEB\\\\portfolio\" -Force | Where-Object { $_.PSIsContainer } | ForEach-Object { $_.Name })",
+      "PowerShell(Get-ChildItem \"C:\\\\KUEI\\\\PROGRAMMING\\\\WEB\\\\portfolio\\\\app\" -Force | ForEach-Object { $_.Name })"
+    ]
+  }
+}
