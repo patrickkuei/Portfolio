@@ -1,7 +1,7 @@
 ---
-title: "SNS Platform — AI-Driven Full-Stack Social App"
-publishedAt: "2024-01-01"
-summary: "A full-stack social platform built via AI-driven development, with 50 weekly active visitors, 30% bounce rate, and 2:30 average session duration."
+title: "Steam Wish List — Social Platform for Gamers"
+publishedAt: "2025-04-01"
+summary: "A production full-stack social platform solving Steam's poor wish list UX. 50 weekly active visitors, 30% bounce rate, 2:30 avg session duration."
 images:
   - "/images/projects/sns-platform/cover-01.jpg"
 team:
@@ -13,16 +13,20 @@ team:
 
 ## Overview
 
-A full-stack social networking platform built as a solo project, using AI-assisted development throughout — from architecture decisions to test generation. The platform is live and has grown to real organic users with strong engagement metrics.
+Steam's built-in wish list has poor UX — no sorting, no filtering, no way to share or discuss games with friends. This platform fills that gap: a social feed where gamers log in with Steam OpenID, curate sortable and filterable game wish lists, and publish posts for others to like, comment, and share. Built solo and running in production with real organic traction — 50 weekly active visitors, 30% bounce rate, and 2:30 average session duration.
 
-## Key Contributions
+## Key Features
 
-- **Full-Stack Solo Build**: Designed and shipped the entire product solo — frontend, backend, database, and deployment — accelerated by AI-driven development workflows.
-- **Real User Traction**: Grew to 50 weekly active visitors with a 30% bounce rate and 2:30 average session duration, indicating genuine engagement.
-- **AI-Driven Development**: Used LLM-assisted coding, test generation, and architecture review throughout the build cycle as a force multiplier for solo delivery.
+- **Steam OpenID Auth**: Seamless login via Steam's official OpenID — no separate account or password needed.
+- **Social Feed**: Users publish wish lists as posts, with likes, comments, and sharing — building community around game discovery.
+- **Smart Wish List**: Sort and filter across all saved games in one view, solving the core UX gap that Steam's native wish list ignores.
+- **Steam Game Sync**: Automated pipeline syncs ~150,000+ Steam app records into PostgreSQL in under 30 seconds using batch upsert. Scheduled via cron job hitting a protected API endpoint.
+- **Full Data Model**: PostgreSQL schema covering Users, SteamGames, Wishlists, WishlistItems, FeedPosts, Comments, CommentLikes, and WishlistLikes — all managed with Prisma ORM and hosted on Supabase.
 
 ## Technologies
 
-- **Frontend**: React, TypeScript
-- **Backend**: Node.js, RESTful API
-- **Infrastructure**: CI/CD, Docker
+- **Frontend**: Next.js, React, TypeScript
+- **Backend**: Next.js API Routes, Prisma ORM, PostgreSQL (Supabase)
+- **Auth**: Steam OpenID
+- **Data Pipeline**: Steam Web API, batch upsert, cron-based sync
+- **Infrastructure**: Vercel, Supabase, Docker, CI/CD

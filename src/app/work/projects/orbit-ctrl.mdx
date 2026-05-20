@@ -1,0 +1,31 @@
+---
+title: "orbit.ctrl — Real-Time Satellite Mission Control Dashboard"
+publishedAt: "2025-05-01"
+summary: "Built to explore a domain transition into space systems — a real-time satellite tracking dashboard with 3D globe visualization, 10 Hz telemetry streaming, anomaly detection, and a natural language AI agent backed by an MCP server."
+images:
+  - "/images/projects/orbit-ctrl/cover-01.jpg"
+team:
+  - name: "Shen-Kuei Yang (Patrick)"
+    role: "Software Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/patrickyang-0a369415a/"
+link: "https://patrickkuei.github.io/Satellite-Mission-Control-Dashboard/"
+---
+
+## Overview
+
+Built as a deliberate step toward the space industry — orbit.ctrl is a real-time satellite mission control dashboard that tracks 50 LEO satellites on an interactive 3D globe, streams live telemetry at 10 Hz, and lets operators query orbital data in plain English via an AI agent. Built as a full-stack solo project to explore agentic AI, real-time data pipelines, and 3D visualization.
+
+## Key Features
+
+- **3D Globe**: Three.js-powered globe tracking 50 LEO satellites with live orbital motion. Click any satellite to view its ground track and upcoming passes.
+- **Telemetry Stream**: 10 Hz WebSocket feed displaying voltage, temperature, and attitude metrics with Z-score anomaly detection surfaced in real time.
+- **AI Agent**: Natural language queries like *"which satellites overhead have active anomalies?"* answered with real-time streaming across Gemini, Groq, and Anthropic.
+- **MCP Server**: Exposes 6 tools to Claude Desktop and Cursor via stdio for external AI integration — a first-class MCP implementation.
+- **Space Weather**: Kp index and auroral oval overlay for situational awareness.
+
+## Technologies
+
+- **Frontend**: React, TypeScript, Vite, Three.js, Recharts, Zustand, TanStack Query
+- **Backend**: Fastify, WebSocket, Node.js
+- **AI**: Gemini API, Groq, Anthropic API, MCP SDK

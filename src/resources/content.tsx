@@ -109,22 +109,15 @@ const about: About = {
           <>
             Pioneered hook-based architecture adoption across <strong>50+ engineers</strong>,
             replacing legacy patterns and establishing reusable components adopted company-wide.
+            Optimized rendering from <strong>4,000 re-renders to 1</strong>.
           </>,
           <>
             Rebuilt testing infrastructure from <strong>0% to 80% coverage</strong> via
             AI-assisted development, integrating Jest into CI pipeline.
           </>,
           <>
-            Optimized rendering performance from <strong>4,000 re-renders to 1</strong> through
-            hook-based architectural refactoring.
-          </>,
-          <>
             Mentored <strong>6 engineers</strong> including 2 senior leads, established
             company&apos;s first frontend documentation, and drove TypeScript adoption across teams.
-          </>,
-          <>
-            Led multi-national regression testing, resolved P3 issues same-day, and prevented P1
-            incidents through proactive API review processes.
           </>,
         ],
         images: [],
@@ -245,28 +238,7 @@ const gallery: Gallery = {
   label: "Gallery",
   title: `Gallery – ${person.name}`,
   description: `A visual collection by ${person.name}`,
-  images: [
-    {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-  ],
+  images: [],
 };
 
 export { person, social, newsletter, home, about, blog, work, gallery };
