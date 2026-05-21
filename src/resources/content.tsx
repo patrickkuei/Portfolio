@@ -4,7 +4,7 @@ import { Text } from "@once-ui-system/core";
 const person: Person = {
   firstName: "Patrick",
   lastName: "Yang",
-  name: "Shen-Kuei Yang (Patrick)",
+  name: "Patrick Yang",
   role: "Full-Stack Engineer",
   avatar: "/images/avatar.jpg",
   email: "azureroki@gmail.com",
@@ -66,7 +66,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} based in Tokyo, Japan`,
+  description: `Meet ${person.name}, ${person.role} — fully remote, open to roles globally`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -83,12 +83,17 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I&apos;m a Tokyo-based full-stack engineer with 5+ years of experience. My pattern is
-        simple: I see something missing or broken, and I build the fix. A UI library because most
-        are painful to use. A Steam social platform because the wish list UX was broken. A
-        satellite dashboard because I want to work on things that matter at a larger scale. At
-        Vyond I led the flagship Text-to-Video product from concept to production — shipping
-        real features with real users is what drives me. Now aiming that same impulse at space.
+        Full-stack engineer since 2020, fully remote since 2022. Currently in Tokyo, open
+        to remote roles globally.
+        <br /><br />
+        My pattern: I see something missing, I build the fix. A UI library because most are
+        painful to use. A social platform because Steam&apos;s wish list UX was broken. Real
+        contributors, real visitors — I ship things people actually use.
+        <br /><br />
+        I&apos;m moving into the space industry. orbit.ctrl is how I&apos;m learning the
+        domain: a real-time satellite dashboard with AI agents and an MCP server.
+        <br /><br />
+        <em>I pick up new fields by building in them.</em>
       </>
     ),
   },
@@ -138,11 +143,13 @@ const about: About = {
       {
         company: "DISCO Corporation & Win Semiconductor",
         timeframe: "Apr 2017 – Aug 2019",
-        role: "Engineer",
+        role: "Equipment & Customer Engineer",
         achievements: [
           <>
-            Built web-based HR management system replacing legacy Excel workflows, improving
-            operational efficiency by <strong>70%</strong>.
+            Worked in semiconductor equipment and customer engineering. Built an internal
+            HRMS as a side project, replacing Excel workflows and improving operational
+            efficiency by <strong>70%</strong> — my first taste of shipping software that
+            solves a real problem.
           </>,
         ],
         images: [],
@@ -208,10 +215,10 @@ const about: About = {
           </>
         ),
         tags: [
-          { name: "LangChain", icon: "langchain" },
           { name: "OpenAI API", icon: "openai" },
-          { name: "Claude API", icon: "anthropic" },
-          { name: "MCP", icon: "mcp" },
+          { name: "LangChain" },
+          { name: "Claude API" },
+          { name: "MCP" },
         ],
         images: [],
       },
